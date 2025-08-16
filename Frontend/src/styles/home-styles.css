@@ -1,0 +1,110 @@
+*{
+    color: white;
+}
+
+header, main {
+    padding: 0 15rem;
+}
+
+header {
+text-align: center;
+padding-bottom: 20%;
+background-color: #0E100F;
+background-image:
+
+/* purple circle */
+  radial-gradient(
+    /* width height at X Y*/
+    /* Color1 tranparency1 */
+    /* Color2 tranparency2 */
+    30% 45% at 10% 80%,
+    rgba(124, 98, 255, 1) 20%,
+    rgba(124, 98, 255, 0) 100%
+  ),
+/* blue gradient */
+radial-gradient(
+    100% 50% at 50% 100%,
+    rgba(19, 131, 236, 1) 0%,
+    rgba(40, 40, 40, 0) 100%
+  );
+
+}
+
+.hero-features {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.hero-features span {
+    font-weight: bold;
+    color: green;
+}
+
+
+.hero-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 2.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.hero-search img {
+    width: 2rem;
+    height: 2rem;
+    /* padding: 0.5rem; */
+}
+.hero-search select{
+    color: #282828;
+}
+
+.hero-search select{
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 1rem 0.5rem;
+}
+
+.hero-search select option{
+    border: none;
+    color: #282828;
+}
+
+.hero-search input {
+    font-size: 1.2rem;
+    width: 100%;
+    padding: 0.5rem;
+    color: #848484;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+
+.hero-title{
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 3rem auto auto auto;
+    width: 60%;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(
+    90deg,
+    rgba(180, 180, 180, 1) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(180, 180, 180, 1) 100%
+  );
+}
+
+.hero-title-subtext {
+    width: 70%;
+    margin: auto;
+    font-size: 1.3rem;
+    font-weight: 200;
+    margin-top: 1rem;
+}

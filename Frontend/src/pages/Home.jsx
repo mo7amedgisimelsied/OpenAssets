@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Donation from "../components/Donation";
+import '../styles/home-styles.css';
 
 function Home(){
     return (

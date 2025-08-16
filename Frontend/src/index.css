@@ -8,3 +8,21 @@
     /* font-weight: weight;
     font-style: normal; */
 }
+
+nav {
+display: flex;
+justify-content: space-between;
+padding: 1.5rem 0;
+font-size: 1.3rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav p { /* Logo */
+    font-size: 1.5rem;
+    font-weight: 600;
+}
