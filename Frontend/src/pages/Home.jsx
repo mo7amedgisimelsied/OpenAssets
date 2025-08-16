@@ -1,13 +1,25 @@
+import Contribution from "../components/Contibution";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Donation from "../components/Donation";
 
 function Home(){
     return (
         <>
-        <Navbar />
-        <Hero />
+        <header>
+            <Navbar />
+            <Hero />
+        </header>
+        <main>
+            <Contribution />
+            <Donation />
+        </main>
+        <footer>
+            <Footer />
+        </footer>
         </>
     );
 }
 
-export default Home
+export default Home;
