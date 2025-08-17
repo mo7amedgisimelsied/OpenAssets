@@ -9,7 +9,7 @@ function Home(){
     return (
         <>
         <header>
-            <Navbar />
+            <Navbar current = "Home"/>
             <Hero />
         </header>
         <main>

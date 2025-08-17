@@ -6,7 +6,6 @@
 .donation-section h2 {
     font-size: 2.5rem;
     font-weight: 700;
-    padding: 0 15rem 0 15rem;
 }
 
 .donation-subtext {
@@ -50,4 +49,13 @@
 .donate-button:hover {
     background-color: #0b5bbf;
     transform: scale(1.05);
+}
+
+@media screen and (min-width: 1024px) {
+
+}
+
+@media screen and (max-width: 1024px) {
+
+    
 }

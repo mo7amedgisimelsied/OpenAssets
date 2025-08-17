@@ -4,9 +4,20 @@
 
 header, main {
     background-color: #0E100F;
+    overflow: hidden;
+}
+
+main {
+    background-image:
+radial-gradient(
+    30% 30% at 0% 35%,
+    #FB5D54 0%,
+    rgba(40, 40, 40, 0) 100%
+  );
 }
 
 header {
+position: relative;
 text-align: center;
 background-image:
 
@@ -28,6 +39,25 @@ radial-gradient(
 
 }
 
+.abstract-shape {
+  position: absolute;
+  top: 12%;
+  left: 14%;
+  z-index: 0;
+  pointer-events: none;
+}
+.shape{
+  position: absolute;
+  top: 25%;
+  left: 75%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+header > *:not(.abstract-shape, .shape) {
+  position: relative;
+  z-index: 1;
+}
 .hero-features {
     display: flex;
     justify-content: center;
@@ -133,4 +163,15 @@ radial-gradient(
         flex-direction: column;
     }
     
+}
+
+.hero-search-button {
+    font-size: 1.2rem;
+    padding: 0.5rem 1.3rem;
+    border-radius: 10px;
+    margin-left: 1rem;
+    border: none;
+    background-color: #282828;
+    color: white;
+    cursor: pointer;
 }

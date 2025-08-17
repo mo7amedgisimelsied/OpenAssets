@@ -1,6 +1,28 @@
 .contribution-section {
-    padding: 5rem 0 5rem 0
-    
+    padding: 5rem 0 5rem 0;
+    position: relative;
+}
+
+.star{
+    position: absolute;
+    width: 40%;
+    top: 25%;
+    left: 105%;
+    z-index: 0;
+    pointer-events: none;
+}
+.star-outlined {
+    position: absolute;
+    width: 15%;
+    top: 10%;
+    left: 92%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+.contribution-section > *:not(.star, .star-outlined) {
+    position: relative;
+    z-index: 1;
 }
 
 .site-statistics {
@@ -23,7 +45,7 @@
 
 .label {
     font-weight: 200;
-    color: #848484;
+    /* color: #848484; */
 }
 
 .join-discord {

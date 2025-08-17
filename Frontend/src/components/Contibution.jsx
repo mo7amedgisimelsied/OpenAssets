@@ -1,8 +1,12 @@
 import discordIcon from '../../public/discord-icon.svg';
+import star from '../../public/star.svg';
+import starOutlined from '../../public/star-outlined.svg';
 import '../styles/contribution-styles.css';
 function Contribution() {
     return (
         <section className="contribution-section">
+            <img src={star} alt="star-background" className='star' />
+            <img src={starOutlined} alt="star-outlined-background" className='star-outlined' />
             <h2>WANT TO GIVE BACK?</h2>
             <p className='contribution-subtext'>Whether you’re a 3D artist, icon designer, or illustrator, you can help creators everywhere by sharing your work for free. Join our global team of volunteers and make the creative world a little fairer.</p>
             <button className='join-discord'>

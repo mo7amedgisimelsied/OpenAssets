@@ -5,6 +5,7 @@
 
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
+    
 }
 
 nav {
@@ -37,4 +38,27 @@ nav p { /* Logo */
         display: none;
     }
     
+}
+
+footer {
+    background-color: #282828;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.footer-links img {
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    margin-bottom: 1rem;
+}
+.footer-links img:hover {
+    transform: scale(1.1);
 }
