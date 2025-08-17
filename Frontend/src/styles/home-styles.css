@@ -2,13 +2,9 @@
     color: white;
 }
 
-header, main {
-    padding: 0 15rem;
-}
 
 header {
 text-align: center;
-padding-bottom: 20%;
 background-color: #0E100F;
 background-image:
 
@@ -48,15 +44,15 @@ radial-gradient(
     justify-content: space-between;
     align-items: center;
     background-color: white;
-    border-radius: 5px;
+    border-radius: 12px;
     margin-top: 2.5rem;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
 }
 
 .hero-search img {
     width: 2rem;
     height: 2rem;
-    /* padding: 0.5rem; */
+    margin-left: 1rem;
 }
 .hero-search select{
     color: #282828;
@@ -89,8 +85,8 @@ radial-gradient(
 .hero-title{
     font-size: 3rem;
     font-weight: 700;
+    /* top right bottom left*/
     margin: 3rem auto auto auto;
-    width: 60%;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent;
     background: linear-gradient(
@@ -102,9 +98,37 @@ radial-gradient(
 }
 
 .hero-title-subtext {
-    width: 70%;
     margin: auto;
     font-size: 1.3rem;
-    font-weight: 200;
+    font-weight: 150;
     margin-top: 1rem;
+}
+
+@media screen and (min-width: 1024px) {
+    header, main {
+        padding: 0 15rem;
+    }
+    header {
+        padding-bottom: 16%;
+    }
+    .hero-title{
+        width: 60%;
+    }
+    .hero-title-subtext{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    header, main {
+        padding: 0 2rem;
+    }
+    header {
+        padding-bottom: 16%;
+    }
+
+    .hero-features {
+        flex-direction: column;
+    }
+    
 }

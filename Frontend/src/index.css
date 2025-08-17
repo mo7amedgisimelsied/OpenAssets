@@ -26,3 +26,10 @@ nav p { /* Logo */
     font-size: 1.5rem;
     font-weight: 600;
 }
+/* temp solution */
+@media screen and (max-width: 1024px) {
+    nav ul {
+        display: none;
+    }
+    
+}
