@@ -1,0 +1,84 @@
+.contribution-section {
+    padding: 5rem 0 5rem 0
+    
+}
+
+.site-statistics {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4.5rem;
+}
+
+.number {
+    font-weight: bold;
+}
+
+.statistics{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.label {
+    font-weight: 200;
+    color: #848484;
+}
+
+.join-discord {
+    font-size: 1.2rem;
+    border-radius: 18px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 3rem;
+    border: 2px solid transparent;
+    background-image: linear-gradient(#0E100F, #0E100F), linear-gradient(to right, white, gray);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    transition: 0.2s ease-in-out;
+}
+.join-discord:hover {
+    transform: scale(1.05);
+}
+.join-discord img {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 0.5rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.contribution-subtext {
+    font-size: 1.5rem;
+    font-weight: 200;
+    margin-top: 1.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+    .contribution-section{
+        padding-right: 3rem;
+    }
+    .number {
+    font-size: 3rem;
+    }
+
+    .label {
+    font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+
+    .number {
+    font-size: 1.5rem;
+    }
+    .label {
+    font-size: 1.3rem;
+    }
+}

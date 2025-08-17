@@ -2,10 +2,12 @@
     color: white;
 }
 
+header, main {
+    background-color: #0E100F;
+}
 
 header {
 text-align: center;
-background-color: #0E100F;
 background-image:
 
 /* purple circle */
@@ -62,8 +64,8 @@ radial-gradient(
     font-size: 1.2rem;
     border: none;
     outline: none;
-    background: transparent;
     padding: 1rem 0.5rem;
+    width: 20%;
 }
 
 .hero-search select option{
