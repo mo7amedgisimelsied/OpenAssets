@@ -1,13 +1,13 @@
-*{
+.home-header, .home-main {
     color: white;
 }
 
-header, main {
+.home-header, .home-main {
     background-color: #0E100F;
     overflow: hidden;
 }
 
-main {
+.home-main {
     background-image:
 radial-gradient(
     30% 30% at 0% 35%,
@@ -16,9 +16,10 @@ radial-gradient(
   );
 }
 
-header {
+.home-header {
 position: relative;
 text-align: center;
+padding-bottom: 16%;
 background-image:
 
 /* purple circle */
@@ -54,7 +55,7 @@ radial-gradient(
   pointer-events: none;
 }
 
-header > *:not(.abstract-shape, .shape) {
+.home-header > *:not(.abstract-shape, .shape) {
   position: relative;
   z-index: 1;
 }
@@ -70,27 +71,26 @@ header > *:not(.abstract-shape, .shape) {
     color: green;
 }
 
-
-.hero-search {
-    display: flex;
+.search-bar{
+display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: white;
     border-radius: 12px;
-    margin-top: 2.5rem;
     padding: 0.5rem;
 }
 
-.hero-search img {
+
+.search-bar img {
     width: 2rem;
     height: 2rem;
     margin-left: 1rem;
 }
-.hero-search select{
+.search-bar select{
     color: #282828;
 }
 
-.hero-search select{
+.search-bar select{
     font-size: 1.2rem;
     border: none;
     outline: none;
@@ -98,12 +98,12 @@ header > *:not(.abstract-shape, .shape) {
     width: 20%;
 }
 
-.hero-search select option{
+.search-bar select option{
     border: none;
     color: #282828;
 }
 
-.hero-search input {
+.search-bar input {
     font-size: 1.2rem;
     width: 100%;
     padding: 0.5rem;
@@ -134,14 +134,12 @@ header > *:not(.abstract-shape, .shape) {
     font-size: 1.3rem;
     font-weight: 150;
     margin-top: 1rem;
+    margin-bottom: 3.5rem;
 }
 
 @media screen and (min-width: 1024px) {
     header, main {
         padding: 0 15rem;
-    }
-    header {
-        padding-bottom: 16%;
     }
     .hero-title{
         width: 60%;
@@ -155,23 +153,8 @@ header > *:not(.abstract-shape, .shape) {
     header, main {
         padding: 0 2rem;
     }
-    header {
-        padding-bottom: 16%;
-    }
-
     .hero-features {
         flex-direction: column;
     }
     
-}
-
-.hero-search-button {
-    font-size: 1.2rem;
-    padding: 0.5rem 1.3rem;
-    border-radius: 10px;
-    margin-left: 1rem;
-    border: none;
-    background-color: #282828;
-    color: white;
-    cursor: pointer;
 }

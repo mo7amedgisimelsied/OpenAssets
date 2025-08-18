@@ -5,7 +5,6 @@
 
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
-    
 }
 
 nav {
@@ -13,6 +12,7 @@ display: flex;
 justify-content: space-between;
 padding: 1.5rem 0;
 font-size: 1.3rem;
+margin-bottom: 1.5rem;
 }
 
 nav ul {
@@ -61,4 +61,13 @@ footer {
 }
 .footer-links img:hover {
     transform: scale(1.1);
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 14px;
+    padding:  1rem;
+    color: white;
 }

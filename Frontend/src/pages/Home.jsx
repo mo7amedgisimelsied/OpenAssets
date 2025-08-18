@@ -8,11 +8,11 @@ import '../styles/home-styles.css';
 function Home(){
     return (
         <>
-        <header>
+        <header className="home-header">
             <Navbar current = "Home"/>
             <Hero />
         </header>
-        <main>
+        <main className="home-main">
             <Contribution />
             <Donation />
         </main>

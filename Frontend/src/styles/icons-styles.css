@@ -1,0 +1,117 @@
+.icons-header{
+    color: #282828;
+}
+
+.icons-header .search-bar {
+    border: #282828 1px solid;
+    flex-grow: 1;
+}
+
+.search-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-filters{
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+/* @media screen and (min-width: 720px) {
+
+
+@media screen and (max-width: 720px) {
+
+} */
+
+.filter-label {
+    position: relative;
+  cursor: pointer;
+  /* font-size: 22px; */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.filter-label input{
+    position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: -15px;
+  height: 1.2rem;
+  width: 1.2rem;
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+.filter-label:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.filter-label input:checked ~ .checkmark {
+  background-color: #282828;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.filter-label input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.filter-label .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.icon-container {
+    width: 5rem;
+    height: 5rem;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-container:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: #aaaaaa 1px solid;
+}
+
+.icon-container svg{
+  fill: #282828;
+  width: 80%;
+}
+
+.icons-list-container {
+  margin: 5rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 6px;
+}

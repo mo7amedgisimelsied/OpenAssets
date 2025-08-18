@@ -18,7 +18,7 @@
     left: 92%;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.5;
+    opacity: 0.4;
 }
 .contribution-section > *:not(.star, .star-outlined) {
     position: relative;
@@ -50,16 +50,16 @@
 
 .join-discord {
     font-size: 1.2rem;
-    border-radius: 18px;
-    padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
     cursor: pointer;
     margin-top: 3rem;
-    border: 2px solid transparent;
-    background-image: linear-gradient(#0E100F, #0E100F), linear-gradient(to right, white, gray);
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
+    background-color: rgba(255, 255, 255, 0.079);
+    border: solid 2px rgba(255, 255, 255, 0.547);
+    /* border: 2px solid transparent; */
+    /* background-image: linear-gradient(#0E100F, #0E100F), linear-gradient(to right, white, gray); */
+    /* background-origin: border-box; */
+    /* background-clip: padding-box, border-box; */
     transition: 0.2s ease-in-out;
 }
 .join-discord:hover {

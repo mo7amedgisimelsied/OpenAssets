@@ -24,7 +24,8 @@
 .supporters-pics {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .supporters-pics img {
@@ -36,13 +37,9 @@
 
 .donate-button {
     font-size: 1.5rem;
-    border: none;
-    border-radius: 15px;
     font-weight: 700;
-    padding: 1rem 2rem;
     margin: 4rem 0 8rem 0;
     background-color: #1483EC;
-    cursor: pointer;
     transition: 0.3s;
 }
 
