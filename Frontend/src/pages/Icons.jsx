@@ -8,7 +8,7 @@ function Icons(){
     let iconsList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     return (
         <>
-        <header className="icons-header">
+        <header className="assets-search-header">
             <Navbar current="Icons" />
             
             <div className="search-container">

@@ -71,48 +71,6 @@ radial-gradient(
     color: green;
 }
 
-.search-bar{
-display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    border-radius: 12px;
-    padding: 0.5rem;
-}
-
-
-.search-bar img {
-    width: 2rem;
-    height: 2rem;
-    margin-left: 1rem;
-}
-.search-bar select{
-    color: #282828;
-}
-
-.search-bar select{
-    font-size: 1.2rem;
-    border: none;
-    outline: none;
-    padding: 1rem 0.5rem;
-    width: 20%;
-}
-
-.search-bar select option{
-    border: none;
-    color: #282828;
-}
-
-.search-bar input {
-    font-size: 1.2rem;
-    width: 100%;
-    padding: 0.5rem;
-    color: #848484;
-    border: none;
-    outline: none;
-    background: transparent;
-}
-
 
 .hero-title{
     font-size: 3rem;
