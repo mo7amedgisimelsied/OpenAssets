@@ -18,10 +18,24 @@ public class Icons {
     private String iconDescription;
 
     @Column(name = "svg_code")
-    @JsonRawValue
     private String svgCode;
 
     private String creator;
+
+    @Column(name = "keywords")
+    private String keywords;
+
+    public Icons(){
+
+    }
+
+    public Icons(String iconTitle, String iconDescription, String creator, String keywords, String svgCode) {
+        this.iconTitle = iconTitle;
+        this.iconDescription = iconDescription;
+        this.creator = creator;
+        this.keywords = keywords;
+        this.svgCode = svgCode;
+    }
 
     public String getCreator() {
         return creator;
@@ -61,5 +75,13 @@ public class Icons {
 
     public void setIconId(Integer iconId) {
         this.iconId = iconId;
+    }
+
+    public String getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
     }
 }

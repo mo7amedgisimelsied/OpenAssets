@@ -23,4 +23,8 @@ public class IconsServices {
         return iconsRepo.findBySearchTerm(term);
     }
 
+    public Icons uploadFiles(String title, String description, String creator, String keywords, String svgCode) {
+        Icons newIcon = new Icons(title, description, creator, keywords, svgCode);
+        return iconsRepo.save(newIcon);
+    }
 }

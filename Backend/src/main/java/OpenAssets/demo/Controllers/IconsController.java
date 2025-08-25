@@ -2,10 +2,8 @@ package OpenAssets.demo.Controllers;
 
 import OpenAssets.demo.Entities.Icons;
 import OpenAssets.demo.Services.IconsServices;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -28,6 +26,18 @@ public class IconsController {
     @GetMapping("/search/term")
     public List<Icons> findBySearchTerm(@RequestParam String term){
         return iconsServices.findBySearchTerm(term);
+    }
+
+    @PostMapping("upload")
+    public Icons uploadFiles(
+            @RequestParam("title") String title,
+            @RequestParam("description") String description,
+            @RequestParam("creator") String creator,
+            @RequestParam("keywords") String keywords,
+            @RequestParam("svgCode") String svgCode
+
+    ){
+        return iconsServices.uploadFiles(title, description, creator, keywords, svgCode);
     }
 
 }
