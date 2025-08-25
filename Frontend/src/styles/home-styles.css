@@ -21,23 +21,16 @@ position: relative;
 text-align: center;
 padding-bottom: 16%;
 background-image:
-
-/* purple circle */
   radial-gradient(
-    /* width height at X Y*/
-    /* Color1 tranparency1 */
-    /* Color2 tranparency2 */
     30% 45% at 10% 80%,
     rgba(124, 98, 255, 1) 20%,
     rgba(124, 98, 255, 0) 100%
   ),
-/* blue gradient */
 radial-gradient(
     100% 50% at 50% 100%,
     rgba(19, 131, 236, 1) 0%,
     rgba(40, 40, 40, 0) 100%
   );
-
 }
 
 .abstract-shape {
@@ -75,7 +68,6 @@ radial-gradient(
 .hero-title{
     font-size: 3rem;
     font-weight: 700;
-    /* top right bottom left*/
     margin: 3rem auto auto auto;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent;
@@ -114,5 +106,4 @@ radial-gradient(
     .hero-features {
         flex-direction: column;
     }
-    
 }

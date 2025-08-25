@@ -16,8 +16,6 @@
     flex-grow: 1;
 }
 
-
-
 @media (max-width: 720px) {
     .assets-search-header .search-bar{
         width: 100%;

@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import SearchBar from "../components/SearchBar";
@@ -6,18 +7,36 @@ import '../styles/vector-styles.css';
 
 function Vector(){
 
-    const vectors_dummy = [
-        'https://placehold.co/1920x1080',
-        'https://placehold.co/1920x1080',
-        'https://placehold.co/1280x720',
-        'https://placehold.co/1920x1080',
-        'https://placehold.co/1280x720',
-        'https://placehold.co/1080x1080',
-        'https://placehold.co/1080x1080',
-        'https://placehold.co/1080x920',
-        'https://placehold.co/1920x1080',
-        'https://placehold.co/1080x1920'
-    ];
+    const [list, setList] = useState([]);
+
+    useEffect(() => {
+        // fetch icons from API
+        fetch('http://localhost:8080/vectors')
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setList(data);
+      });
+
+    }, []);
+
+    function handleDownload(id){
+        fetch(`http://localhost:8080/vectors/download/${id}`, {
+            headers: {
+                'Content-Type': 'application/octet-stream'
+            }
+        })
+        .then((res) => res.blob())
+        .then((blob) => {
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', `vector-${id}`);
+            link.click();
+        });
+    }
+
     return (
         <>
             <header className="assets-search-header">
@@ -25,12 +44,12 @@ function Vector(){
                 <SearchBar showDropdown={false} />
             </header>
             <main className="vectors-list-container">
-                {vectors_dummy.map((url, index) => (
+                {list.map((vector, index) => (
                     <figure key={index}>
-                        <a href="">
-                            <img src={url} alt={`Vector ${index + 1}`} />
-                            <div className="overlay"></div>
-                        </a>
+                            <img src={vector.previewPath} alt={`Vector ${index + 1}`} />
+                            <div className="overlay">
+                                <button onClick={() => handleDownload(vector.id)}>Download</button>
+                            </div>
                     </figure>
                 ))}
             </main>

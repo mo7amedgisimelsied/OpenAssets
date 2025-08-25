@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Icons from './pages/Icons'
 import Models from './pages/Models'
 import Vector from './pages/Vector'
+import UploadFiles from './pages/UploadFiles'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Route path='/3d' element={<Models />} />
       <Route path='/vector' element={<Vector />} />
       <Route path='/home' element={<Home />} />
+      <Route path='/upload' element={<UploadFiles />} />
     </Routes>
     </Router>
   )

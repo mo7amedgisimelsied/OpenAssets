@@ -15,7 +15,6 @@ function Icons(){
         return res.json();
       })
       .then((data) => {
-        console.log(data);
         setIConsList(data);
       });
 
@@ -24,23 +23,7 @@ function Icons(){
         <>
         <header className="assets-search-header">
             <Navbar current="Icons" />
-            
-            <div className="search-container">
-                <SearchBar showDropdown={false} />
-
-                <div className="search-filters">
-                <div className="filter-label">
-                    <input type="radio" name="icon-style" id="fill" />
-                    <span className="checkmark"></span>
-                    <label htmlFor="fill" style={{ marginLeft: '0.6rem' }}>Fill</label>
-                </div>
-                <div className="filter-label">
-                    <input type="radio" name="icon-style" id="outline" />
-                    <span className="checkmark"></span>
-                    <label htmlFor="outline" style={{ marginLeft: '0.6rem' }}>Outline</label>
-                </div>
-                </div>
-            </div>
+                <SearchBar showDropdown={false} url = {'http://localhost:8080/icons/search/'} setAssetList={setIConsList}/>
         </header>
         <main className="icons-list-container">
                     {iconsList.map((icon, index) => (
