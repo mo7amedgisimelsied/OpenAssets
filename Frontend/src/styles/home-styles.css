@@ -50,7 +50,7 @@ radial-gradient(
 
 .home-header > *:not(.abstract-shape, .shape) {
   position: relative;
-  z-index: 1;
+  /* z-index: 1; */
 }
 .hero-features {
     display: flex;
