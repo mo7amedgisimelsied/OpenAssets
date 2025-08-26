@@ -1,4 +1,8 @@
 import '../styles/donation-styles.css';
+import profile1 from '../../public/profile1.jpg';
+import profile2 from '../../public/profile2.jpg';
+import profile3 from '../../public/profile3.jpg';
+import profile4 from '../../public/profile4.jpg';
 function Donation() {
     return (
         <section className="donation-section">
@@ -7,10 +11,10 @@ function Donation() {
 
             <p className='top-supporters'>Top Supporters</p>
             <div className='supporters-pics'>
-                <img src="https://placehold.co/100x100" alt="supporter" />
-                <img src="https://placehold.co/200x200" alt="supporter" />
-                <img src="https://placehold.co/200x200" alt="supporter" />
-                <img src="https://placehold.co/200x200" alt="supporter" />
+                <img src={profile1} alt="supporter" />
+                <img src={profile2} alt="supporter" />
+                <img src={profile3} alt="supporter" />
+                <img src={profile4} alt="supporter" />
             </div>
             <button className='donate-button'>Donate Now</button>
         </section>
