@@ -74,7 +74,7 @@ public class ModelServices {
 
 
     public ResponseEntity<Resource> downloadFile(Integer id) throws MalformedURLException {
-        String relativePath = modelRepo.findByModelId(id).getFilePath();
+        String relativePath = modelRepo.findByModelId(id).getFilePath().replace('\\', '/');
         Path filePath = Paths.get(SAVE_LOCATION).resolve(relativePath).normalize();
         try {
             Resource resource = new UrlResource(filePath.toUri());

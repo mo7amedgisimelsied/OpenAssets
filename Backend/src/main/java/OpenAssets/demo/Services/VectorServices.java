@@ -73,7 +73,7 @@ public class VectorServices {
     }
 
     public ResponseEntity<Resource> downloadFile(Integer id) throws MalformedURLException {
-        String relativePath = vectorsRepo.findByVectorId(id).getFilePath();
+        String relativePath = vectorsRepo.findByVectorId(id).getFilePath().replace('\\', '/');
         Path filePath = Paths.get(SAVE_LOCATION).resolve(relativePath).normalize();
 
         try {

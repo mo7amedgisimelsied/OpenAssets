@@ -2,7 +2,6 @@ package OpenAssets.demo.Controllers;
 
 
 import OpenAssets.demo.DTOs.VectorDTO;
-import OpenAssets.demo.Entities.Icons;
 import OpenAssets.demo.Entities.VectorEntity;
 import OpenAssets.demo.Services.VectorServices;
 import org.springframework.core.io.Resource;

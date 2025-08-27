@@ -2,6 +2,7 @@ package OpenAssets.demo.Config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -15,7 +16,8 @@ public void addCorsMappings(CorsRegistry registry) {
     registry.addMapping("/**")
             .allowedOrigins("*")
             .allowedMethods("GET", "POST")
-            .allowedHeaders("*");
+            .allowedHeaders("*")
+            .exposedHeaders(HttpHeaders.CONTENT_DISPOSITION);
 }
 
     @Value("${app.storage.path}")
