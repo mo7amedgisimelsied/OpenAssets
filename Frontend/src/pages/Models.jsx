@@ -4,50 +4,51 @@ import SearchBar from "../components/SearchBar";
 import '../styles/search-bar-styles.css';
 import '../styles/models-styles.css';
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 function Models(){
     const [modelsList, setModelsList] = useState([]);
+    const [searchParams] = useSearchParams();
 
     useEffect(() => {
-            // fetch icons from API
-            fetch('http://localhost:8080/models')
-          .then((res) => {
-            return res.json();
-          })
-          .then((data) => {
-            setModelsList(data);
-          });
-    
-        }, []);
+    const searchTerm = searchParams.get('term');
+    const fetchModels = async () => {
+        try {
+            let url;
 
-        function handleDownload(id){
-        fetch(`http://localhost:8080/models/download/${id}`, {
-            headers: {
-                'Content-Type': 'application/octet-stream'
+            if (searchTerm) {
+                url = `http://localhost:8080/models/search/term?term=${searchTerm}`;
+            } else {
+                url = 'http://localhost:8080/models';
             }
-        })
-        .then((res) => res.blob())
-        .then((blob) => {
-            const url = window.URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', `model-${id}`);
-            link.click();
-        });
-    }
+
+            const response = await fetch(url);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            setModelsList(data);
+        } catch (error) {
+            console.error('Failed to fetch models:', error);
+            setModelsList([]);
+        }
+    };
+    fetchModels();
+    }, [searchParams]);
 
     return (
         <>
             <header className="assets-search-header">
                 <Navbar current='3D' />
-                <SearchBar showDropdown={false} url = {'http://localhost:8080/models/search/'} setAssetList={setModelsList}/>
+                <SearchBar showDropdown={false} basePath="/3d"/>
             </header>
             <main className="models-list-container">
                     {modelsList.map((model, index) => (
                     <figure key={index}>
                             <img src={model.previewPath} alt={`model ${index + 1}`} />
                             <div className="overlay">
-                                <button onClick={() => handleDownload(model.id)}>Download</button>
+                                <a href={`http://localhost:8080/models/download/${model.id}`}>Download</a>
                             </div>
                     </figure>
                 ))}

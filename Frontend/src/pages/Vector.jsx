@@ -4,51 +4,53 @@ import Navbar from "../components/Navbar";
 import SearchBar from "../components/SearchBar";
 import '../styles/search-bar-styles.css';
 import '../styles/vector-styles.css';
+import { useSearchParams } from "react-router-dom";
 
 function Vector(){
 
-    const [list, setList] = useState([]);
+    const [list, setList] = useState([{id: 1, previewPath: 'https://picsum.photos/1920/1080'}]);
+    const [searchParams] = useSearchParams();
 
     useEffect(() => {
-        // fetch icons from API
-        fetch('http://localhost:8080/vectors')
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setList(data);
-      });
+    const searchTerm = searchParams.get('term');
+    const fetchVectors = async () => {
+        try {
+            let url;
 
-    }, []);
-
-    function handleDownload(id){
-        fetch(`http://localhost:8080/vectors/download/${id}`, {
-            headers: {
-                'Content-Type': 'application/octet-stream'
+            if (searchTerm) {
+                url = `http://localhost:8080/vectors/search/term?term=${searchTerm}`;
+            } else {
+                url = 'http://localhost:8080/vectors';
             }
-        })
-        .then((res) => res.blob())
-        .then((blob) => {
-            const url = window.URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', `vector-${id}`);
-            link.click();
-        });
-    }
+
+            const response = await fetch(url);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            setList(data);
+        } catch (error) {
+            console.error('Failed to fetch vectors:', error);
+            setList([]);
+        }
+    };
+    fetchVectors();
+    }, [searchParams]);
 
     return (
         <>
             <header className="assets-search-header">
                 <Navbar current='Vector' />
-                <SearchBar showDropdown={false} />
+                <SearchBar showDropdown={false} basePath="/vector"/>
             </header>
             <main className="vectors-list-container">
                 {list.map((vector, index) => (
                     <figure key={index}>
+                        
                             <img src={vector.previewPath} alt={`Vector ${index + 1}`} />
                             <div className="overlay">
-                                <button onClick={() => handleDownload(vector.id)}>Download</button>
+                                <a href={`http://localhost:8080/vectors/download/${vector.id}`}>Download</a>
                             </div>
                     </figure>
                 ))}

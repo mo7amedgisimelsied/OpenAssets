@@ -4,26 +4,45 @@ import '../styles/icons-styles.css';
 import SearchBar from "../components/SearchBar";
 import { useEffect, useState } from "react";
 import IconSidebar from "../components/IconSidebar";
+import { useSearchParams } from "react-router-dom";
 function Icons(){
     const [iconsList, setIConsList] = useState([]);
     const [showSidebar, setShowSidebar] = useState(false);
     const [selectedIcon, setSelectedIcon] = useState(null);
+    const [searchParams] = useSearchParams();
+    
     useEffect(() => {
-        // fetch icons from API
-        fetch('http://localhost:8080/icons')
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setIConsList(data);
-      });
+    const searchTerm = searchParams.get('term');
+    const fetchIcons = async () => {
+        try {
+            let url;
 
-    }, []);
+            if (searchTerm) {
+                url = `http://localhost:8080/icons/search/term?term=${searchTerm}`;
+            } else {
+                url = 'http://localhost:8080/icons';
+            }
+
+            const response = await fetch(url);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            setIConsList(data);
+        } catch (error) {
+            console.error('Failed to fetch icons:', error);
+            setIConsList([]);
+        }
+    };
+    fetchIcons();
+    }, [searchParams]);
+
     return (
         <>
         <header className="assets-search-header">
             <Navbar current="Icons" />
-                <SearchBar showDropdown={false} url = {'http://localhost:8080/icons/search/'} setAssetList={setIConsList}/>
+                <SearchBar showDropdown={false} basePath="/icons"/>
         </header>
         <main className="icons-list-container">
                     {iconsList.map((icon, index) => (
