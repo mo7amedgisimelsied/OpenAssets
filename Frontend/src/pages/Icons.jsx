@@ -5,6 +5,7 @@ import SearchBar from "../components/SearchBar";
 import { useEffect, useState } from "react";
 import IconSidebar from "../components/IconSidebar";
 import { useSearchParams } from "react-router-dom";
+import AssetNotFound from "../components/AssetNotFound";
 function Icons(){
     const [iconsList, setIConsList] = useState([]);
     const [showSidebar, setShowSidebar] = useState(false);
@@ -38,6 +39,16 @@ function Icons(){
     fetchIcons();
     }, [searchParams]);
 
+    function FetchedIcons(list) {
+            return list.map((icon, index) => (
+                        <div key={index}
+                        onClick={() => {setSelectedIcon(icon); setShowSidebar((prev) => {return !prev})}}
+                        className="icon-container"
+                        dangerouslySetInnerHTML={{ __html: icon.svgCode }}
+                        />
+                    ))
+        };
+
     return (
         <>
         <header className="assets-search-header">
@@ -45,13 +56,7 @@ function Icons(){
                 <SearchBar showDropdown={false} basePath="/icons"/>
         </header>
         <main className="icons-list-container">
-                    {iconsList.map((icon, index) => (
-                        <div key={index}
-                        onClick={() => {setSelectedIcon(icon); setShowSidebar((prev) => {return !prev})}}
-                        className="icon-container"
-                        dangerouslySetInnerHTML={{ __html: icon.svgCode }}
-        />
-                    ))}
+                    {iconsList.length > 0 ? FetchedIcons(iconsList) : <AssetNotFound />}
                     {showSidebar && <IconSidebar icon = {selectedIcon} setShowSidebar={setShowSidebar}/>}
         </main>
         <footer>

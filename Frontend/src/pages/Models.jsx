@@ -5,6 +5,7 @@ import '../styles/search-bar-styles.css';
 import '../styles/models-styles.css';
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import AssetNotFound from "../components/AssetNotFound";
 
 function Models(){
     const [modelsList, setModelsList] = useState([]);
@@ -37,6 +38,17 @@ function Models(){
     fetchModels();
     }, [searchParams]);
 
+    function FetchedModels(list){
+        return list.map((model, index) => (
+                        <figure key={index}>
+                                <img src={model.previewPath} alt={`model ${index + 1}`} />
+                                <div className="overlay">
+                                    <a href={`http://localhost:8080/models/download/${model.id}`}>Download</a>
+                                </div>
+                        </figure>
+                ));
+    }
+
     return (
         <>
             <header className="assets-search-header">
@@ -44,14 +56,7 @@ function Models(){
                 <SearchBar showDropdown={false} basePath="/3d"/>
             </header>
             <main className="models-list-container">
-                    {modelsList.map((model, index) => (
-                    <figure key={index}>
-                            <img src={model.previewPath} alt={`model ${index + 1}`} />
-                            <div className="overlay">
-                                <a href={`http://localhost:8080/models/download/${model.id}`}>Download</a>
-                            </div>
-                    </figure>
-                ))}
+                    {modelsList.length > 0 ? FetchedModels(modelsList) : <AssetNotFound />}
             </main>
             <footer>
                 <Footer />
