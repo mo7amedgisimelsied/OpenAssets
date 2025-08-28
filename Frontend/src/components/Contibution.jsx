@@ -15,7 +15,7 @@ function Contribution() {
                 <button className='upload-assets' onClick={() => history('/upload') }>Upload Assets</button>
                 <button className='join-discord'>
                     <img src={discordIcon} alt="Discord Icon" />
-                    Join the Discord →
+                    Join Discord →
                 </button>
             </div>
 
