@@ -1,5 +1,6 @@
 package OpenAssets.demo.DTOs;
 
+/// Data Transfer Object (DTO) for Vector entity to send only the necessary data to the client
 public class VectorDTO {
 
     private Integer id;
@@ -8,12 +9,13 @@ public class VectorDTO {
 
     public VectorDTO(){
     }
-
+    /// Constructor to initialize VectorDTO with id and previewPath
     public VectorDTO(Integer id, String previewPath) {
         this.id = id;
         this.previewPath = previewPath;
     }
 
+    /// Getters and Setters
     public Integer getId() {
         return id;
     }

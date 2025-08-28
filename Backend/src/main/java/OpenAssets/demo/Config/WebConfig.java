@@ -11,26 +11,32 @@ import java.nio.file.Paths;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
-@Override
-public void addCorsMappings(CorsRegistry registry) {
-    registry.addMapping("/**")
-            .allowedOrigins("*")
-            .allowedMethods("GET", "POST")
-            .allowedHeaders("*")
-            .exposedHeaders(HttpHeaders.CONTENT_DISPOSITION);
-}
 
+    /// Configures to allow cross-origin requests
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("*")
+                .allowedMethods("GET", "POST")
+                .allowedHeaders("*")
+                .exposedHeaders(HttpHeaders.CONTENT_DISPOSITION);
+    }
+
+    /// injects storage path from application.properties
     @Value("${app.storage.path}")
     private String storagePath;
 
-@Override
-public void addResourceHandlers(ResourceHandlerRegistry registry){
-    String fileSystemPathUri = Paths.get(storagePath).toUri().toString();
 
-    String finalLocation = fileSystemPathUri.endsWith("/") ? fileSystemPathUri : fileSystemPathUri + "/";
-
-    registry.addResourceHandler("/files/**")
-            .addResourceLocations(finalLocation);
-}
+    /// Configures resource handlers
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry){
+        
+        String fileSystemPathUri = Paths.get(storagePath).toUri().toString();
+        String finalLocation = fileSystemPathUri.endsWith("/") ? fileSystemPathUri : fileSystemPathUri + "/";
+        
+        /// map any requests starting with /files/ to the location on the file system defined by finalLocation
+        registry.addResourceHandler("/files/**")
+                .addResourceLocations(finalLocation);
+    }
 
 }

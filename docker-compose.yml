@@ -13,16 +13,16 @@ services:
     # Mount the db-dump directory to initialize the database with your dump.sql
     volumes:
       - ./db-dump:/docker-entrypoint-initdb.d/
-    # Expose port 3307 on the host to access the database from outside the Docker network (optional but useful for local development/tools)
+    # Expose port 3307 on the host to access the database from outside the Docker network
     ports:
       - "3307:3306"
     # Restart the container if it stops for any reason
     restart: unless-stopped
 
-  # Backend Service (Spring Boot)
+  # Backend Service
   backend:
     # Build the backend image from the Dockerfile located in the ./OpenAssets/Backend directory
-    build: ./Backend # Corrected path to match your file structure
+    build: ./Backend
     # Map port 8080 from the container to port 8080 on the host
     ports:
       - "8080:8080"
@@ -33,30 +33,21 @@ services:
     restart: unless-stopped
     # Define environment variables for the Spring Boot application to connect to the database
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/openassets-db # 'db' is the service name for the database
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/openassets-db
       SPRING_DATASOURCE_USERNAME: admin
       SPRING_DATASOURCE_PASSWORD: 1234
-      # If your Spring Boot app needs to know where its 'storage' is,
-      # ensure this path is correctly used within your Spring Boot application.
-      # For example, if your Spring Boot app reads/writes to /app/storage, this mapping works.
-      # The host path should be relative to the docker-compose.yml file.
     volumes:
-      - ./storage:/app/storage # Mount your storage directory for the backend to access files
+      - ./storage:/app/storage
 
-  # Frontend Service (React)
+  # Frontend Service
   frontend:
     # Build the frontend image from the Dockerfile located in the ./OpenAssets/Frontend directory
-    build: ./Frontend # Corrected path to match your file structure
+    build: ./Frontend
     # Map port 80 from the container (where Nginx serves the app) to port 80 on the host
     ports:
-      - "80:80" # This will make your React app accessible via http://localhost/
-    # Ensure the backend is up before the frontend starts (useful if frontend makes API calls on load)
+      - "80:80"
+    # Ensure the backend is up before the frontend starts
     depends_on:
       - backend
     # Restart the container unless it's explicitly stopped
     restart: unless-stopped
-    # If your React app needs to know about the backend's URL, you might set it here.
-    # However, with the Nginx proxy_pass, the frontend can call /api directly.
-    # For example, if your React app needs an explicit API_URL environment variable:
-    # environment:
-    #   REACT_APP_API_URL: http://backend:8080 # This might be needed during React build

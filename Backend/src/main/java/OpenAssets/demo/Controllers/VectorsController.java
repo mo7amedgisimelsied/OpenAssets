@@ -16,28 +16,33 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/// Controller to handle HTTP requests related to vector assets
 @RestController
 @RequestMapping("vectors")
 public class VectorsController {
 
+    /// Dependency on VectorServices to handle business logic
     private final VectorServices vectorServices;
     private static final Logger log = Logger.getLogger(VectorsController.class.getName());
 
+    /// Constructor injection of VectorServices
     public VectorsController(VectorServices vectorServices) {
         this.vectorServices = vectorServices;
     }
 
+    /// Endpoint to retrieve all vector asset previews
     @GetMapping()
     public List<VectorDTO> getAllPreviews(){
         return vectorServices.getAllPreviews();
     }
 
-
+    /// Endpoint to search vector assets by a search term
     @GetMapping("/search/term")
     public List<VectorDTO> findBySearchTerm(@RequestParam String term){
         return vectorServices.findBySearchTerm(term);
     }
 
+    /// Endpoint to upload a new vector asset to the database
     @PostMapping("upload")
     public ResponseEntity<VectorEntity> uploadFiles(
             @RequestParam("title") String title,
@@ -59,6 +64,7 @@ public class VectorsController {
         }
     }
 
+    /// Endpoint to download a vector asset file by its ID
     @GetMapping("download/{id}")
     public ResponseEntity<Resource> downloadFile(@PathVariable Integer id) throws MalformedURLException {
         return vectorServices.downloadFile(id);

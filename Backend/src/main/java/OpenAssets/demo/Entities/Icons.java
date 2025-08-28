@@ -3,6 +3,9 @@ package OpenAssets.demo.Entities;
 import com.fasterxml.jackson.annotation.JsonRawValue;
 import jakarta.persistence.*;
 
+/// Entity class for 'icons' table in the database,
+/// each field maps to a column in the table,
+/// the id is auto-generated for each new record.
 @Entity
 @Table(name = "icons")
 public class Icons {

@@ -2,6 +2,9 @@ package OpenAssets.demo.Entities;
 
 import jakarta.persistence.*;
 
+/// Entity class for 'models' table in the database,
+/// each field maps to a column in the table,
+/// the id is auto-generated for each new record.
 @Entity
 @Table(name = "models")
 public class ModelEntity {
