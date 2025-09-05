@@ -11,12 +11,12 @@ function Donation() {
 
             <p className='top-supporters'>Top Supporters</p>
             <div className='supporters-pics'>
-                <img src={profile1} alt="supporter" />
-                <img src={profile2} alt="supporter" />
-                <img src={profile3} alt="supporter" />
-                <img src={profile4} alt="supporter" />
+                <div className="supporter"><img src={profile1} alt="supporter" /><p>@walter_white</p></div>
+                <div className="supporter"><img src={profile2} alt="supporter" /><p>@jesse_pinkman</p></div>
+                <div className="supporter"><img src={profile3} alt="supporter" /><p>@gustavo_fring</p></div>
+                <div className="supporter"><img src={profile4} alt="supporter" /><p>@saul_goodman</p></div>
             </div>
-            <button className='donate-button'>Donate Now</button>
+            <button className='donate-button'>Donate Now →</button> 
         </section>
     );
 }

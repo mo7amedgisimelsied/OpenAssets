@@ -35,21 +35,18 @@ function UploadFiles() {
     const url = urls[assetType];
     const dataToSend = new FormData();
 
-    if (assetType === 'icon') {
         dataToSend.append('title', formData.title);
         dataToSend.append('creator', formData.creator);
         dataToSend.append('description', formData.description || '');
         dataToSend.append('keywords', formData.keywords);
+
+      if (assetType === 'icon') {
         dataToSend.append('svgCode', formData.svgCode);
-    } else { // vector and 3d models
+      } else {  
       if (!formData.previewImage || !formData.file) {
         alert("Please upload both a preview image and the main file.");
         return;
       }
-      dataToSend.append('title', formData.title);
-      dataToSend.append('creator', formData.creator);
-      dataToSend.append('description', formData.description || null);
-      dataToSend.append('keywords', formData.keywords);
       dataToSend.append('previewImage', formData.previewImage);
       dataToSend.append('file', formData.file);
     }
@@ -172,6 +169,7 @@ function UploadFiles() {
               </label>
               <input
                 type="file"
+                accept='image/*'
                 id="previewImage"
                 name="previewImage"
                 onChange={handleFileChange}

@@ -1,9 +1,7 @@
 package OpenAssets.demo.Services;
 
 import OpenAssets.demo.DTOs.ModelDTO;
-import OpenAssets.demo.DTOs.VectorDTO;
 import OpenAssets.demo.Entities.ModelEntity;
-import OpenAssets.demo.Entities.VectorEntity;
 import OpenAssets.demo.Repositories.ModelRepo;
 import jakarta.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Value;
@@ -46,8 +44,8 @@ public class ModelServices {
 
     /// Searches for models matching the given search term
     public List<ModelDTO> findBySearchTerm(String term) {
-        List<ModelEntity> allVectors = modelRepo.findBySearchTerm(term);
-        return allVectors.stream()
+        List<ModelEntity> allModels = modelRepo.findBySearchTerm(term);
+        return allModels.stream()
                 .map(model -> {
                     /// Construct the full URL for the preview image
                     String previewImageUrl = "http://localhost:8080" + "/files/" + model.getPreviewPath();
@@ -130,8 +128,8 @@ public class ModelServices {
 
     /// Retrieves all model previews from the database
     public List<ModelDTO> getAllPreviews() {
-        List<ModelEntity> allVectors = modelRepo.findAll();
-        return allVectors.stream()
+        List<ModelEntity> allModels = modelRepo.findAll();
+        return allModels.stream()
                 .map(model -> {
                     /// Construct the full URL for the preview image
                     String previewImageUrl = "http://localhost:8080" + "/files/" + model.getPreviewPath();
@@ -139,5 +137,4 @@ public class ModelServices {
                 })
                 .collect(Collectors.toList());
     }
-
 }

@@ -1,6 +1,5 @@
 package OpenAssets.demo.Entities;
 
-import com.fasterxml.jackson.annotation.JsonRawValue;
 import jakarta.persistence.*;
 
 /// Entity class for 'icons' table in the database,
@@ -8,7 +7,7 @@ import jakarta.persistence.*;
 /// the id is auto-generated for each new record.
 @Entity
 @Table(name = "icons")
-public class Icons {
+public class IconEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "icon_id")
@@ -28,11 +27,11 @@ public class Icons {
     @Column(name = "keywords")
     private String keywords;
 
-    public Icons(){
+    public IconEntity(){
 
     }
 
-    public Icons(String iconTitle, String iconDescription, String creator, String keywords, String svgCode) {
+    public IconEntity(String iconTitle, String iconDescription, String creator, String keywords, String svgCode) {
         this.iconTitle = iconTitle;
         this.iconDescription = iconDescription;
         this.creator = creator;

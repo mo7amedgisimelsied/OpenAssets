@@ -1,6 +1,5 @@
 package OpenAssets.demo.Repositories;
 
-import OpenAssets.demo.Entities.Icons;
 import OpenAssets.demo.Entities.VectorEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

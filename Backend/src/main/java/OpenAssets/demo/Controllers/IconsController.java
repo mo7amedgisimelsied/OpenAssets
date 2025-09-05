@@ -1,6 +1,6 @@
 package OpenAssets.demo.Controllers;
 
-import OpenAssets.demo.Entities.Icons;
+import OpenAssets.demo.Entities.IconEntity;
 import OpenAssets.demo.Services.IconsServices;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,19 +20,19 @@ public class IconsController {
 
     /// Endpoint to retrieve all icons from the database
     @GetMapping()
-    public List<Icons> findAllIcons(){
+    public List<IconEntity> findAllIcons(){
     return iconsServices.findAllIcons();
 }
 
     /// Endpoint to search icons by a search term
     @GetMapping("/search/term")
-    public List<Icons> findBySearchTerm(@RequestParam String term){
+    public List<IconEntity> findBySearchTerm(@RequestParam String term){
         return iconsServices.findBySearchTerm(term);
     }
 
     /// Endpoint to upload a new icon to the database
     @PostMapping("upload")
-    public Icons uploadFiles(
+    public IconEntity uploadFiles(
             @RequestParam("title") String title,
             @RequestParam("description") String description,
             @RequestParam("creator") String creator,

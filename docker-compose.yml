@@ -4,13 +4,13 @@ services:
   # Database Service (MySQL)
   db:
     image: mysql:8
-    # Define environment variables for the MySQL server
+    # environment variables for the MySQL server
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: openassets-db
       MYSQL_USER: admin
       MYSQL_PASSWORD: 1234
-    # Mount the db-dump directory to initialize the database with your dump.sql
+    # Mount the db-dump directory to initialize the database with the dump.sql
     volumes:
       - ./db-dump:/docker-entrypoint-initdb.d/
     # Expose port 3307 on the host to access the database from outside the Docker network

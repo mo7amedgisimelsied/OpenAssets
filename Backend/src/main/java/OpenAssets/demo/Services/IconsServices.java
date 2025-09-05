@@ -1,6 +1,6 @@
 package OpenAssets.demo.Services;
 
-import OpenAssets.demo.Entities.Icons;
+import OpenAssets.demo.Entities.IconEntity;
 import OpenAssets.demo.Repositories.IconsRepo;
 import org.springframework.stereotype.Service;
 
@@ -18,18 +18,18 @@ public class IconsServices {
     }
 
     /// Retrieves all icons from the repository
-    public List<Icons> findAllIcons(){
+    public List<IconEntity> findAllIcons(){
         return iconsRepo.findAll();
     }
 
     /// Searches for icons based on a search term
-    public List<Icons> findBySearchTerm(String term){
+    public List<IconEntity> findBySearchTerm(String term){
         return iconsRepo.findBySearchTerm(term);
     }
 
     /// Uploads a new icon to the database with the provided details and SVG code
-    public Icons uploadFiles(String title, String description, String creator, String keywords, String svgCode) {
-        Icons newIcon = new Icons(title, description, creator, keywords, svgCode);
+    public IconEntity uploadFiles(String title, String description, String creator, String keywords, String svgCode) {
+        IconEntity newIcon = new IconEntity(title, description, creator, keywords, svgCode);
         return iconsRepo.save(newIcon);
     }
 }

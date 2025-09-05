@@ -23,7 +23,7 @@ align-items: center;
     border: none;
     font-size: 2rem;
     cursor: pointer;
-    color: #333;
+    color: inherit;
     padding: 0;
 }
 
