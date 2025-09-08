@@ -1,6 +1,7 @@
 import discordIcon from '../../public/discord-icon.svg';
 import star from '../../public/star.svg';
 import starOutlined from '../../public/star-outlined.svg';
+import uploadIcon from '../../public/upload.svg';
 import '../styles/contribution-styles.css';
 import { useNavigate } from "react-router-dom";
 function Contribution() {
@@ -12,7 +13,10 @@ function Contribution() {
             <h2>WANT TO GIVE BACK?</h2>
             <p className='contribution-subtext'>Whether you’re a 3D artist, icon designer, or illustrator, you can help creators everywhere by sharing your work for free. Join our global team of volunteers and make the creative world a little fairer.</p>
             <div style={{display: "flex", gap: "1rem", marginTop: '3rem', flexWrap: "wrap"}}>
-                <button className='upload-assets' onClick={() => history('/upload') }>Upload Assets</button>
+                <button className='upload-assets' onClick={() => history('/upload') }>
+                    <img src={uploadIcon} alt="Upload Icon" />
+                    Upload Assets
+                    </button>
                 <button className='join-discord'>
                     <img src={discordIcon} alt="Discord Icon" />
                     Join Discord →

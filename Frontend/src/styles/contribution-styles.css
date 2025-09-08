@@ -47,22 +47,21 @@
     font-weight: 200;
 }
 
-.join-discord {
+.join-discord, .upload-assets {
     font-size: 1.2rem;
     display: flex;
     align-items: center;
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.079);
-    border: solid 2px rgba(255, 255, 255, 0.547);
     transition: 0.2s ease-in-out;
 }
+
+.join-discord {
+    background-color: rgba(255, 255, 255, 0.079);
+    border: solid 2px rgba(255, 255, 255, 0.547);
+}
 .upload-assets{
-    font-size: 1.2rem;
-    cursor: pointer;
     background-color: white;
     color: #282828;
-
-    transition: 0.2s ease-in-out;
 }
 
 .join-discord:hover, .upload-assets:hover {
@@ -71,6 +70,12 @@
 .join-discord img {
     width: 3rem;
     height: 3rem;
+    margin-right: 0.5rem;
+}
+
+.upload-assets img {
+    width: 2rem;
+    height: 2rem;
     margin-right: 0.5rem;
 }
 
