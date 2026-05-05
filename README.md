@@ -1,7 +1,8 @@
 # OpenAssets
 Platform for free graphic assets
 
-<img width="1889" height="887" alt="Screenshot" src="https://github.com/user-attachments/assets/3b38725e-6aa0-47de-975c-ac1bfff8bc6f" />
+<img width="1222" height="2669" alt="Home_Page (1)" src="https://github.com/user-attachments/assets/53fa5f23-96d3-46ff-bbff-0ae109f76a2f" />
+
 
 ## Getting Started
 
