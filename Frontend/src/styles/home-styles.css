@@ -3,7 +3,7 @@
 }
 
 .home-header, .home-main {
-    background-color: #0E100F;
+    background-color: #050B17;
     overflow: hidden;
 }
 
@@ -11,38 +11,26 @@
     background-image:
 radial-gradient(
     30% 30% at 0% 35%,
-    #FB5D54 0%,
-    rgba(40, 40, 40, 0) 100%
+    #4E3BFF 0%,
+    #050B17 100%
   );
 }
 
 .home-header {
 position: relative;
 text-align: center;
-padding-bottom: 16%;
-background-image:
-  radial-gradient(
-    30% 45% at 10% 80%,
-    rgba(124, 98, 255, 1) 20%,
-    rgba(124, 98, 255, 0) 100%
-  ),
-radial-gradient(
-    100% 50% at 50% 100%,
-    rgba(19, 131, 236, 1) 0%,
-    rgba(40, 40, 40, 0) 100%
-  );
 }
 
 .abstract-shape {
   position: absolute;
-  top: 12%;
-  left: 14%;
+  top: 25%;
+  left: 20%;
   z-index: 0;
   pointer-events: none;
 }
 .shape{
   position: absolute;
-  top: 25%;
+  top: 30%;
   left: 75%;
   z-index: 0;
   pointer-events: none;
@@ -66,7 +54,6 @@ radial-gradient(
 
 
 .hero-title{
-    font-size: 3rem;
     font-weight: 700;
     margin: 3rem auto auto auto;
     -webkit-background-clip: text !important;
@@ -81,29 +68,41 @@ radial-gradient(
 
 .hero-title-subtext {
     margin: auto;
-    font-size: 1.3rem;
     font-weight: 150;
     margin-top: 1rem;
     margin-bottom: 3.5rem;
 }
 
 @media screen and (min-width: 1024px) {
+
     header, main {
-        padding: 0 15rem;
+    padding: 1% 16% 5% 16%;
+    /* top right bottom left */
     }
     .hero-title{
-        width: 60%;
+        font-size: 4rem;
+        width: 80%;
     }
     .hero-title-subtext{
+        font-size: 1.5rem;
         width: 70%;
     }
 }
 
 @media screen and (max-width: 1024px) {
+
     header, main {
         padding: 0 2rem;
     }
     .hero-features {
         flex-direction: column;
+    }
+
+    .hero-title{
+        font-size: 3rem;
+    }
+
+    .hero-title-subtext{
+        font-size: 1.3rem;
     }
 }

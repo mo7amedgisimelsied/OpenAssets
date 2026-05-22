@@ -73,8 +73,8 @@ nav p { /* Logo */
 }
 
 footer {
-    background-color: #282828;
-    color: white;
+    background-color: #ffffff;
+    color: #050B17;
     padding: 2rem 0;
     text-align: center;
 }
@@ -99,7 +99,7 @@ button {
     cursor: pointer;
     border: none;
     outline: none;
-    border-radius: 14px;
-    padding:  1rem;
+    border-radius: 50px;
+    padding:  1rem 2rem 1rem 2rem;
     color: white;
 }

@@ -53,15 +53,17 @@
 
 .donate-button {
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 600;
     margin: 4rem 0 8rem 0;
-    background-color: #1483EC;
+    color: #050B17;
+    border: white 2px solid;
+    background: #ffffff;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 69%, rgba(78, 59, 255, 1) 100%);
     transition: 0.3s;
 }
 
 
 .donate-button:hover {
-    background-color: #0b5bbf;
     transform: scale(1.05);
 }
 
